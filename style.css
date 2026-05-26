@@ -10,6 +10,8 @@
   --accent: #7ee6c1;
   --accent-2: #69a8ff;
   --accent-3: #ffbf69;
+  --accent-purple: #b58cff;
+  --purple-glow: rgba(181, 140, 255, 0.18);
   --shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
   --radius-xl: 32px;
   --radius-lg: 24px;
@@ -32,6 +34,7 @@ body {
   margin: 0;
   font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   background:
+    radial-gradient(circle at 55% -10%, rgba(181, 140, 255, 0.13), transparent 32%),
     radial-gradient(circle at top left, rgba(105, 168, 255, 0.18), transparent 34%),
     radial-gradient(circle at right 15%, rgba(126, 230, 193, 0.16), transparent 28%),
     linear-gradient(180deg, #050b15 0%, #09111f 40%, #040910 100%);
@@ -141,7 +144,7 @@ main section[id] {
   display: grid;
   place-items: center;
   border-radius: 12px;
-  background: linear-gradient(135deg, rgba(126, 230, 193, 0.95), rgba(105, 168, 255, 0.95));
+  background: linear-gradient(135deg, rgba(126, 230, 193, 0.95), rgba(105, 168, 255, 0.95), rgba(181, 140, 255, 0.92));
   color: #07111f;
   font-family: "Space Grotesk", sans-serif;
 }
@@ -174,7 +177,7 @@ main section[id] {
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 180ms ease;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  background: linear-gradient(90deg, var(--accent), var(--accent-2), var(--accent-purple));
 }
 
 .site-nav a:hover,
@@ -284,8 +287,8 @@ main section[id] {
 
 .button-primary {
   color: #07111f;
-  background: linear-gradient(135deg, var(--accent), #b6ffd9);
-  box-shadow: 0 18px 40px rgba(126, 230, 193, 0.22);
+  background: linear-gradient(135deg, var(--accent), #b6ffd9 58%, var(--accent-purple));
+  box-shadow: 0 18px 40px rgba(126, 230, 193, 0.22), 0 8px 32px var(--purple-glow);
 }
 
 .button-secondary {
@@ -339,6 +342,7 @@ main section[id] {
   border-radius: 30px;
   background:
     linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.02)),
+    radial-gradient(circle at 86% 12%, var(--purple-glow), transparent 34%),
     linear-gradient(180deg, rgba(22, 36, 60, 0.9), rgba(10, 18, 34, 0.96));
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 30px 80px rgba(0, 0, 0, 0.36);
@@ -376,7 +380,7 @@ main section[id] {
   color: #07111f;
   background:
     radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.75), transparent 45%),
-    linear-gradient(135deg, #7ee6c1 0%, #69a8ff 52%, #ffbf69 100%);
+    linear-gradient(135deg, #7ee6c1 0%, #69a8ff 46%, #b58cff 74%, #ffbf69 100%);
 }
 
 .profile-card h2 {
@@ -499,8 +503,9 @@ main section[id] {
 .filter-button.is-active {
   transform: translateY(-1px);
   color: var(--text);
-  border-color: rgba(126, 230, 193, 0.35);
-  background: rgba(126, 230, 193, 0.1);
+  border-color: rgba(181, 140, 255, 0.42);
+  background: linear-gradient(135deg, rgba(126, 230, 193, 0.1), rgba(181, 140, 255, 0.12));
+  box-shadow: 0 12px 28px var(--purple-glow);
 }
 
 .project-grid {
@@ -524,7 +529,7 @@ main section[id] {
   width: 220px;
   height: 220px;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(105, 168, 255, 0.18), transparent 68%);
+  background: radial-gradient(circle, var(--purple-glow), rgba(105, 168, 255, 0.12) 42%, transparent 68%);
   pointer-events: none;
 }
 
@@ -553,6 +558,11 @@ main section[id] {
 .project-card__link {
   color: var(--accent);
   font-weight: 700;
+}
+
+.project-card__link:hover,
+.project-card__link:focus-visible {
+  color: var(--accent-purple);
 }
 
 .timeline {
@@ -587,6 +597,7 @@ main section[id] {
   padding: 30px;
   border-radius: var(--radius-xl);
   background:
+    radial-gradient(circle at 62% -20%, rgba(181, 140, 255, 0.14), transparent 30%),
     radial-gradient(circle at top right, rgba(126, 230, 193, 0.12), transparent 32%),
     radial-gradient(circle at bottom left, rgba(105, 168, 255, 0.14), transparent 28%),
     var(--surface-strong);
